@@ -1,0 +1,339 @@
+WEEK 2
+******
+------
+======
+
+***look to week 2 file***
+
+Constant definition
+-------------------
+int x=5;
+x=7;
+x=x+2;
+
+You can change but you may want to create an unchangable variable.
+
+
+const int y=6;
+y=7; ---> You cannot change the value of constant variable globally!!!
+
+const double pi=3.14; ---> No one can change.
+
+
+
+Fonksiyon içi değişkenler o fonksiyonu ilgilendirir.
+Fonksiyon içinde global olarak tanımlanmış bir değişkeni tanımlayabilirsin ama fonksiyon dışında iki kez const değeri tanımlayamazsın.
+Fonksiyon içinde de 2 kez aynı değeri tanımlayamazsın (int z=343; , int z=23423; olarak).
+
+
+Macro definition
+----------------
+Create the definition globally.
+
+#define x 30 ---> no one can change this one too
+
+x=45; ---> it is not allowed
+
+
+
+#define name "Ali"
+printf("%s", name); ---> Ali
+
+
+
+
+#define x 30
+main()
+{
+   printf("%d", x); --->30
+   #undef x ---> erase the value of x globally!!!!
+   #define x 35
+   printf("%d", x); --->35
+}
+
+
+
+
+
+const int y=30;
+main()
+{
+   printf("%d",y); 
+   y=50; ---> not allowed
+}
+
+
+
+
+
+int amethod()
+{
+   const int d=5; ---> this is only for this method.
+}
+
+int another()
+{
+   int d=54; ---> you can do because const int d=5; just for main method
+}
+
+
+
+#define a 'A'
+int main()
+{
+	printf("%d",a); ---> return ascii number of A which is 65, if you say %x than you'll get 41 (hexadecimal 65)
+	return 0;
+}
+
+
+
+
+
+
+
+VARIABLE INCREMENT
+------------------
+int x=5;
+x=x+2;
+x=x-2;
+
+x=x+1;   --->  x++;  OR  ++x;
+x=x-1;   --->  x--;  OR  --x;
+               POSTFIX   PREFIX
+               USAGE     USAGE
+
+
+
+int x=5;
+int b;
+printf("%d", x);   ---> 5
+b=x++;
+printf("%d", b);   ---> 5
+printf("%d", x);   ---> 6
+
+
+
+
+int x=5;
+int b;
+printf("%d", x);   ---> 5
+b=++x;
+printf("%d", b);   ---> 6
+printf("%d", x);   ---> 6
+
+
+
+
+
+i=i+2;  --->  i+=2;
+i=i-2;  --->  i-=2;
+i=i*3;  --->  i*=3;
+
+
+
+
+
+ARRAYS
+------
+used to hold multiple numbers
+
+
+int x=5;   ---> one variable
+int y[4];  ---> 4 is the size of the array, i'm gonna hold 4 numbers
+                4 dimensional array 
+
+y[0] = 2; 
+y[3] =-1;
+...
+y[4] = 17;  ---> you can do this
+
+
+printf("%d", y[0]);
+
+
+
+int x[4] = {2,-1,4,-3}; ---> You don't have to assign every value. 
+                             You can write {2,-1,4}
+
+int y[]={2,-1};
+
+
+
+every index has an physical (real) address on memory.
+
+printf find the address and print what's inside.
+scanf accepts just addresses, that's why we use &. 
+
+
+int x[4];
+x[0]=5;
+scanf("%d", &x[0]);
+            |
+       This carry me to the address.
+
+
+
+double value[5] = {2.0 , -2.5 , 4}; ---> creates array in size 5.
+                                         last 2 values are empty.
+                                         4 doesn't matter.
+                                         4 will be shown as 4.0 in memory.
+
+
+
+CHAR ARRAYS
+-----------
+char A = "B";
+
+char words[2] = {'a','b'};
+
+printf("%c", word[0]); ---> a
+scanf("%c", &word[0]); 
+
+
+
+
+
+
+
+STRING DATA TYPE
+----------------
+String is sequence of characters which is terminated by null character (\0).
+
+char x='A';
+
+char y[4]={'A','B','C','D'};
+
+char name[6]="Mert";   ---> 6 sizes array and i will place M e r t in 4 cells.
+                            value 4 ([4]) will be null (\0). It is automatically added.
+                            If you write Abdurrahman, then it will give an error.
+                            If your word is n character, your size must be n+1 character (1 for null).
+
+         STRING TANIMLIYORSAN SON 1 INDEX BOŞ KALMALI Kİ NULL OLMALI.
+
+*** "" ---> String
+!!! '' ---> Character
+
+printf("%c", name[0]); --> M
+printf("%s", name);   ---> Mert (compiler usually starts writing the character of this array, starting from 0, until
+                                 the null character.)
+
+name[2]="\0";
+
+
+printf("%s", name); ---> Me  (It will stop when it see the null character.)
+
+
+
+
+char name[5]={'A','B','C','D','E'};
+printf("%s \n", name); ---> ABCDE
+name[2]='\0';
+printf("%s", name); ---> AB
+
+
+
+***MEMORY'DEKİ HER HÜCRE DOLUDUR. SİLİNMİŞ DE OLSA ORADAKİ DEĞER KALIR. ATANMIŞ YERDEKİ BİR DEĞERİ BASTIRIRSAN SANA SONUÇ VEREBİLİR.***
+
+
+
+***ARRAY'DE, STRING'TE VE CHAR'DA KULLANDIĞINDAN AZ BOYUT TANIMLAYAMAZSIN.***        
+
+
+IF STATEMENT
+------------
+
+int x=5;
+
+  condition
+     |
+if (x<13)
+{
+   printf("Ali");
+}
+	
+
+
+***if condition is true, you'll get in.
+
+
+Boolean variable ---> True
+                 ---> False
+
+#include <stdbool.h> ---> you'll get boolean variables
+
+if (true)
+{
+   printf("%s", "Ali");
+}
+
+
+
+
+CONDITIONALS
+------------
+a<b
+a>b
+a<=b
+a>=b
+a==b
+a!=b
+
+
+int a=5;
+a<7 ---> true
+a==7 --> false
+a==5 --> true
+a!=7 --> true
+
+
+The value 0 ---> false
+non-zero values ---> true
+
+if(0) ---> false
+if(1) ---> true
+if(-1) --> true
+
+
+
+&& ---> and, everything must be true
+|| ---> or, just 1 true is enough
+
+
+true && true   ---> true 
+true && false  ---> false
+false && true  ---> false
+false && false ---> false
+
+
+COMMON MISTAKES
+---------------
+!!! if (4>3) ;  ---> THERE IS NO ;
+!!! if (4=4)    ---> THERE MUST BE ==
+!!! THERE MUST BE {} BUT IF YOUR IF STATEMENT HAS 1 LINE THEN IT WILL BE ACCEPTED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

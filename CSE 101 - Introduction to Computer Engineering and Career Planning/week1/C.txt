@@ -1,0 +1,286 @@
+WEEK 1
+******
+------
+======
+C is developed by Dennis Ritchie in 1972.
+
+Intended to develop Unix operating system.
+
+C is: 
+-Simple to use
+-Machine independent
+-Rich library
+-Memory management
+-Pointers
+-Structured programming style
+
+
+If you make a mistake, compiler gives you errors.
+
+
+main: name of function which is predefined function in C library. 
+      main() function is the entry point of any C program. It is the point at which execution of program is started. When a C program is executed, the execution control goes directly to the main() function. Every C program have a main() function.
+      There is some startup code you don’t see that is run first, to prepare a few things before it calls finally your main function. But from the point of view of your own source code, main is the first function that will be called when you run your program.
+
+void: a keyword in C language, void means nothing, whenever we use void as a function return type then that function nothing return. here main() function no return any value.
+
+
+***In place of void we can also use int return type of main() function, at that time main() return integer type value.
+
+
+***Write -Wall -Wextra while compiling to see extra warnings.
+
+
+
+int main() is like a tradition. We write a function called int main and it returns us 0.
+If there is no int and return 0; then your function will return nothing and just execute what is inside.
+
+
+
+
+MainFile
+--------
+#include <stdio.h>    ----> library (standard input output)
+
+main()  ---> core of our project, project has to has main method
+{    
+	printf("Welcome \n everybody \n");
+	printf("gtu");
+}
+
+
+
+***If you dont return any integer veriable in function, you don't have to use int. 
+
+
+
+
+Integers
+--------
+#include <stdio.h>
+
+int main()
+{
+	int x=5;
+	int y=10;
+	int z;
+	
+	z=x+y;
+	
+	printf("The result = %d", z);
+}
+
+
+
+printf is another method like main.
+methods have opening and closing brackets.
+
+***variable: a name given to a specific region in memory
+             
+
+   int: 4 bytes of memory (32 bits)
+        used to store positive and negative whole numbers between -2^32 to (2^32) - 1
+
+   double and float: used for floating numbers
+                     double -> 8 bytes
+                     float -> 4 bytes
+
+   char: to store just one single character like "c", "d"...
+         char gender='E';
+         char gender='Women'; THIS IS FALSE BC CHAR REQUIRES JUST 1 BYTE
+
+   short and long specifiers: int a: ---> -2^32 to (2^32) - 1 
+                              If you want more or less bytes:
+                              long int b: ---> 8 bytes
+                              short int x: ---> use less spaces (2 bytes)
+
+                              double c: ---> 8 bytes
+                              long double d: ---> 16 bytes
+                              short int x: ---> use less spaces (2 bytes)
+
+   signed and unsigned: int x: ---> -2^32 to (2^32) - 1 
+                        unsigned int x: ---> 0 to (2^32) - 1
+
+   void: incomplete data type
+         it means 'nothing'
+         we will use void at methods when we don't return anything
+
+
+
+***If you write int x=2.5 your x becomes 2.
+
+
+
+
+
+ERROR
+-----
+#include <stdio.h>
+
+int main()
+{
+	int x,y=78,z;
+	int h=10;
+	int y = 168;
+}
+
+
+
+
+ERROR BC Y IS DECLARED 2 TIMES.
+
+
+
+#include <stdio.h>
+
+int main()
+{
+	int x,y=78,z;
+	int h=10;
+	int t = 168;
+	printf("Your value is %d",t);
+}
+
+
+
+
+
+
+scanf
+-------
+int x=5;   --> compiler gives you 4 bytes and this one has specific address for example "AX05B" and 5 is inside this one.
+int y;   --> compiler gives you another address for example "AX05C"
+
+printf("Please enter your age");
+scanf("%d", &y);   ---> get information from console
+                        & is address operator
+
+(***scanf'te & kullanmamızın nedeni scanf fonksiyonunun girdiğimiz değeri değişkene atarken o değişkenin ramdeki adresini kullanması yüzünden. C'de string veri yapısı yok bu yüzden ardışık charlardan oluşan arrayleri kullanıyoruz. Scanfle string alırken & kullanmamamızın nedeni ise arraylerin aslında ramdeki adresi temsil etmesidir. Arrayin kendisi direkt adres gösterdiği için scanfte & işareti koymamıza gerek kalmıyor.***)
+
+
+printf("%d", &y); ---> number format of hexadecimal adress
+
+printf("%x", &y); ---> AX05C
+
+
+
+
+
+
+
+
+ANOTHER (UNDER MAIN METHOD)
+---------------------------
+int x,y;
+int z;
+x=5;
+y=10;
+z=x+y;
+printf("The sum of %d and %d is %d", x,y,z);
+
+|
+
+The sum of 5 and 10 is 15
+
+
+
+
+
+
+FORMAT SPECIFIERS
+-----------------
+%d  ---> integer
+%ld ---> long integer
+%c  ---> character
+%f  ---> float
+%lf ---> double (long float)
+%s  ---> string
+%x  ---> unsigned hexadecimal
+%X  ---> same with above with capital letters
+
+
+
+
+
+GET THE AGE AND WEIGHT OF A PERSON FROM CONSOLE AND THEN PRINT IT
+-----------------------------------------------------------------
+#include <stdio.h>
+
+main()
+{
+	int age;
+	double weight;
+	printf("Please enter your age: ");
+	scanf("%d", &age);
+	printf("Enter your weight: ");
+	scanf("%lf", &weight);
+	printf("Your age is %d and weight is %.2lf", age,weight);
+}
+
+***.2 for the two digits after .
+
+
+
+
+
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+	float weight,height;
+	printf("Enter your weight: ");
+	scanf("%f", &weight);
+	printf("Enter your height as meter: ");
+	scanf("%f", &height);
+	float bmi = weight/(height*height);
+	printf("Your body mass index is %f. ", bmi);
+	if (bmi < 18.5)
+	{
+		printf("You are underweight.\n");
+	}
+	else if (bmi < 24.9)
+	{
+		printf("You are normal.\n");
+	}
+	else if (bmi < 29.9)
+	{
+		printf("You are overweight.\n");
+	}
+	else if (bmi < 34.9)
+	{
+		printf("You are Obese.\n");
+	}
+	else
+	{
+		printf("You are extremely obese.\n");
+	}
+	getch();
+}
+
+
+
+<conio.h> and getch() is for exe file. If you put these things, then exe won't close immediately after the program has finished.
+(Or you can just write system("PAUSE") at the end.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

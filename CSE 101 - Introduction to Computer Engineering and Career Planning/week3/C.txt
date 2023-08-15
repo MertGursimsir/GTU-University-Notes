@@ -1,0 +1,363 @@
+WEEK 3
+------
+******
+======
+
+int x=5;
+if (x<10)
+{
+   printf("A");
+}
+if (x>3)
+{
+   printf("B");
+}
+else
+{
+   printf("C");
+}
+
+|
+|
+|
+
+AB
+
+
+
+
+
+
+int x=15;
+if (x<5)
+{
+   printf("A");
+}
+if (x>23)
+{
+   printf("B");
+}
+else
+{
+   printf("C");
+}
+
+|
+|
+|
+
+C
+
+
+
+
+
+
+int x=15;
+if (x<5)
+{
+   printf("A");
+}
+else if (x<=10)
+{
+   printf("B");
+}
+else if (x<=15)
+{
+   printf("C");
+}
+else if (x<=20)
+{
+   printf("D");
+}
+else
+{
+   printf("E");
+}
+
+|
+|
+|
+
+C
+
+
+
+
+
+
+
+
+int x=25;
+if (x<5)
+{
+   printf("A");
+}
+else if (x<=10)
+{
+   printf("B");
+}
+else if (x<=15)
+{
+   printf("C");
+}
+else if (x<=20)
+{
+   printf("D");
+}
+else
+{
+   printf("E");
+}
+
+|
+|
+|
+
+E
+
+
+
+IF YOU GET IN ONE OF THE IF STATEMENT, THE CONDITION WILL BE CLOSED.
+
+
+
+
+
+
+putchar() - getchar()
+---------------------
+JUST SPECIAL FOR CHARACTERS
+
+char ch;
+scanf("%c", &ch);
+printf("%c", ch);
+
+=
+
+char ch;
+ch = getchar();
+putchar(ch);
+
+
+
+
+
+
+
+switch statement
+----------------
+Used for multi-way decision that test whether an expression matches one or more than one number of specific values.
+
+switch (exp)
+{
+   case c1: ...
+            ...
+            break;
+
+   case c2: ...
+            ...
+            break;
+   
+   default: ...
+            ...
+              
+}
+
+
+
+
+int x;
+scanf("%d", &x);
+if (x==1)
+{
+   printf("A");
+}
+else if (x==2)
+{
+   printf("B");
+}
+else if (x==3)
+{
+   printf("C");
+}
+else
+{
+   printf("D");
+}
+
+=
+
+int x;
+scanf("%d", &x);
+switch (x)
+{
+   case 1: 
+      printf("A");
+      printf("A1");
+      break;
+   case 2: /*case 3:*/ ---> you can write case 3 either ways, that will look both cases
+   case 3:
+      printf("B");
+      printf("B1");
+      break;
+   case 4: 
+      printf("C");
+      printf("C1");
+      break;
+   default:
+      printf("D");
+      printf("D1");
+}
+
+
+
+
+
+
+char ch;
+scanf("%c", &ch);
+switch (ch)
+{
+   case '1': 
+      printf("A");
+      printf("A1");
+      break;
+   case 'A':
+      printf("B");
+      printf("B1");
+      break;
+   case 'B': 
+      printf("C");
+      printf("C1");
+      break;
+   default:
+      printf("D");
+      printf("D1");
+}
+
+
+
+LOOPS (for / while / do-while)
+------------------------------
+are used to repeat some statement a number of time
+
+
+for (initialization; condition; increment)
+{
+   ---statements---
+}
+
+
+
+int i;
+for (i=0; i<5; i++)
+{
+   printf("%d", i);
+}
+
+|
+|
+|
+
+01234
+
+
+
+
+int i, sum=0;
+for (i=1; i<=4; i++)
+{
+   sum = sum + i;
+}
+printf("%d", sum);
+printf("%d", i);
+
+|
+|
+|
+
+105
+
+
+
+
+int sum=0;
+for (int i=0; i<=4; i++)
+{
+   sum = sum + i;
+}
+printf("%d", sum);
+printf("%d", i);   ---> you can't reach bc i is just for for loop
+
+
+
+
+
+
+int sum,i;
+for (sum=5, i=2; i<8; i=i+2)
+{
+   sum = sum+i;
+}
+printf("%d,%d", sum, i);
+
+|
+|
+|
+
+17, 8
+
+
+
+
+
+int sum=0, i=0;
+for (  ; i<=4; i++)
+{
+   sum= sum+i
+} 
+
+
+
+
+
+int sum=0, i=0;
+for (  ; i<=4; )
+{
+   sum= sum+i
+   i++;
+} 
+
+
+
+for ( ; ; ) ---> infinite loop
+
+
+
+
+
+
+
+
+
+
+
+
+
+int x[10];
+for (int i=0; i<10; i++)
+{
+   scanf("%d", &x[i]);
+}
+for (int i=0; i<10; i++)
+{
+   printf("%d", &x[i]);
+}
+
+
+
+
+
+
+When you know how many times you will repeat, usually the idea is to use for loop.

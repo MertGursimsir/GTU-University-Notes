@@ -1,0 +1,162 @@
+WEEK 9
+------
+******
+======
+
+
+STRUCT
+------
+Structs are collections of related variables.
+Structs can contain variables at different types.
+If you combined structs with pointers, you can efficiently create linked list, stacks, queues and trees.
+Struct is kind of a variable type.
+Struct is a data type.
+
+
+
+int main(){
+   char first[10], last[15];
+   int day, month, year;
+   char gender;
+   float salary;
+
+   scanf("%s, %s, %d, %d, %d, %c, %f", &first, &last, &day, &month, &year, &gender, &salary);
+
+   return 0;
+}
+
+
+YOU CAN ONLY USE THIS CODE JUST FOR 1 PERSON.
+STRUCT IS GOING TO HOLD THIS WHOLE THINGS.
+
+
+/********************************************************
+
+
+#include <stdio.h>
+ 
+struct Person{ ---> memory'de yer işgal etmez,değişkene atarsan eder
+   char first[10];
+   char last[15];
+   int day, month, year;
+   char gender;
+   float salary;
+};
+
+int main(){
+   int a;  ---> we did this just because show that it's same
+   (struct) Person b;   --->   struct is not necessary if you use typedef
+   a=5;
+
+   b.day = 23;
+   b.salary = 670;
+   scanf("%s, %s", &b.first, &b.last);
+   printf("%s", b.last);
+ 
+   Person c;
+   c.day = 25;
+   c.month = 5;
+   c.year = 2020;
+  
+   return 0;
+}
+
+
+
+Struct ile sadece insruction veririz. O yüzden oluşturulurken yer kaplamaz.
+
+"Person" is the structure name and it is used to declare a variable.
+
+A struct cannot contain an instance of itself.
+A struct can be a member of another struct.
+A struct can contain a reference to itself of struct of same type.
+
+
+/********************************************************
+
+
+struct Person{ 
+   char first[10];
+   char last[15];
+   int day, month, year;
+   char gender;
+   float salary;
+};
+
+Person p1;
+Person p2[4];
+
+p1.salary = 250;
+p2[1].salary = 650;
+
+scanf("%s", &p2[2].first);
+
+
+size of int : 4 bytes
+size of p1 : sum of all variables ---> ~ 32 bytes
+
+
+/********************************************************
+
+Person p1;
+Person p3 = {"Ali", "Okan", 23, 5, 1990, 'M', 250};
+          Hepsini sırayla girmen lazım, boş bırakılmaz.
+
+/********************************************************
+
+
+
+Person p1 = {"Ali", "Okan", 5, 12, 1990, 'M', 250};
+Person p2[3]; 
+p2[1] = p1;
+.
+.
+.
+Person p3 = p2[0];
+
+
+You can change p1's variables but not array ones.
+
+p1.gender ='F'; ---> OKAY
+p1.salary=560;  ---> OKAY
+p1.name="Veli"; ---> NOT OKAY
+strcpy(p1.name, "Veli"); ---> OKAY, you have to use string library.
+
+/********************************************************
+
+
+Person Team[10];
+
+for (int i=0; i<10; i++){
+   printf("Write the %d th name: ", i);
+   scanf("%s", &Team[i].first);
+}
+
+/********************************************************
+
+
+
+struct Birthday{
+   int day, month, year;
+};
+
+struct Person{ 
+   char name[10];
+   char surname[15];
+   Birthday birth;
+   char gender;
+   float salary;
+};
+
+Person p1;
+p1.salary = 34;
+p1.birth.day = 7;
+scanf("%d", &p1.birth.month);
+
+
+
+typedef struct Person {​​​​...}​​​​ Person; 
+şeklinde declare etmen lazım ilk başta sadece Person olarak kullanabilmek için.
+typedef kullanmazsan struct Person ...;  şeklinde tanımlarsın. Kullanırsan struct yazmana gerek kalmaz.
+
+

@@ -1,0 +1,109 @@
+WEEK 8
+------
+******
+======
+
+
+RECURSION (ÖZ YİNELEMELİ) FUNCTIONS
+-----------------------------------
+
+If a function is called inside the same function, it is called recursion.
+
+
+Factorial of 4 -> 4!
+(4! = 4(4-1)(4-2)(4-3)) = 4 x 3 x 2 x 1
+***************************************
+Use iterative functions to evaluate factorial.
+
+#include <stdio.h>
+main(){
+   int i=10, f;
+   f=Factorial(i);           ---> 10 x 9 x 8 x ... x 2 x 1
+   printf("%d", f);
+}
+
+int Factorial(int n){
+   int i, product=1;
+   for (i=n; i>=1; i--){
+      product = product * i;
+   }
+   return product;
+}
+
+
+
+
+RECURSION
+---------
+
+4! = 4x3!
+3! = 3x2!
+2! = 2x1!
+1! = 1x0!
+0! = 1 (THIS IS KNOWN)
+
+1---> 0! = 1       ---> Termination condition
+2---> n! = n(n-1)! ---> Recursion step
+
+
+
+main(){
+   int i=3;
+   int j=Factorial(i);
+   printf("%d", j);
+}
+
+int Factorial(int n){
+   if (n<=0)
+      return 1;
+   else
+      return n*Factorial(n-1);
+}
+
+
+
+
+
+Find the sum of n natural numbers. 
+(1+2+3+4+...+n=?)
+*********************************
+
+1 ---> if (n==1), sum(n) = 1  ---> Termination condition
+2 ---> sum(n) = n + sum(n-1)  ---> Recursion step
+
+
+int sum(int n){
+   if (n==1)
+      return 1;
+   else
+      return n + sum(n-1);
+}
+
+
+
+
+
+Fibonacci Numbers
+0 1 1 2 3 5 8 13...
+*******************
+
+1 ---> Fib(0) = 0   ---> Termination condition
+       Fib(1) = 1               
+2 ---> Fib(n) = Fib(n-1) + Fib(n-2) ---> Recursion step
+
+
+int Fib(int n){
+   if (n==0 || n==1)
+      return n;
+   else
+      return Fib(n-1) + Fib(n-2);
+}
+
+
+
+
+
+Recursive functions use a lot of memory from the stack space.
+
+
+

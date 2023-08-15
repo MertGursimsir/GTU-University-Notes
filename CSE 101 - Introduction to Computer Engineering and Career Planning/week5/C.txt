@@ -1,0 +1,217 @@
+WEEK 5
+------
+******
+======
+
+Nested Loops 
+------------
+More than 1 loop.
+Nested loops are not good, try not to use them.
+Nested loops can also be applied to while loops.
+
+for (int i=0; i<5; i++)
+{
+   for (int j=0; j<4; j++)   ---> we shouldn't use i here
+   {
+      
+   }
+}
+
+
+
+
+for (int i=0; i<4; i++)
+{
+   printf("\n%d:",i);
+   for (int j=0; j<3; j++)
+   {
+      printf("*,")
+   }   ----------------------------> Bu döngü bittiğinde j değeri kaybolur.
+}                                    Her seferinde yeniden j yaratırsın.
+
+
+
+
+
+
+
+
+
+While Loops
+-----------
+
+while ()     ----> it is executed n+1 times, inner part is executed n times.
+{
+                           
+}
+
+
+
+
+
+int count=1;
+while (count <= 5)        ---> 6 times, we asked 1 more time when count is 6
+{
+   printf("%d", count);  |---> 5 times
+   count++;              |
+}
+
+
+
+
+
+while (0)  ---> never executes
+{
+
+}
+
+
+
+while (1) /*or (-8.5) or (true)*/ ---> infinite loops
+{
+
+}
+
+
+
+
+
+
+Ask user to write a sentence, and get the sentence using scanf, and count the number of occurance of 'a' inside the sentence, and stop entering sentence using ctrl+z.
+--------------------------------------------------------------------------------
+EOF=ctrl+z
+
+
+main()
+{
+   int count=0;
+   char ch;
+   while (scanf("%c", &ch)!=EOF)
+   {
+      if (ch=='a')
+         count++;
+   }
+}
+printf("There are %d a in your sentence.", count);
+
+
+
+
+
+
+
+
+
+char ch[20];
+char K;
+while (scanf("%c", &K)!=EOF)    /*(K=getchar()!=EOF)*/
+{
+   ch[i]=K;
+   i++;
+}
+
+
+
+
+
+
+
+Do While Loop
+-------------
+You are making the question at the end.
+
+
+do {
+
+}while (condition);
+
+
+
+
+
+Ask user to enter an amount, then we will evaluate the tax and print it. If the user enters a value less than 0, stop.
+--------------------------------------------------------------------------------
+
+
+main()
+{
+   double tax, price, rate=0.18;
+   printf("Enter a price\n");
+   scanf("%f", &price);
+   while (price > 0)
+   {
+      tax = price*rate;
+      printf("The tax is %f", tax);
+      printf("Enter a price\n");
+      scanf("%f", &price);
+   }
+}
+
+
+
+
+
+main()
+{
+   double tax, price, rate=0.18;
+   do{
+      printf("Enter a price\n");
+      scanf("%f", &price);
+      tax = rate*price;
+      printf("Your tax is %f\n", tax);
+   }while (price > 0);
+}
+
+
+
+
+
+int i=0;
+while (i<4) ---> 5 times
+{
+   printf("%d",i);  |---> 4 times
+   i++;             |
+}
+
+
+
+int i=0;
+do{
+   printf("%d",i); |---> 4 times
+   i++;            |
+}while (i<4);  ---> 4 times
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

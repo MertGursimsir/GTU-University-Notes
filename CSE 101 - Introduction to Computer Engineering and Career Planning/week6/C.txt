@@ -1,0 +1,198 @@
+WEEK 6
+------
+******
+======
+
+break causes an immediate exit fro the loop or from the switch.
+
+continue terminates the remaining part of the loop and execution resumes with the next iteration of the loop.
+
+
+
+Assume an array is given below. Print the elements of the array starting from beginning (0 index). If anay item equal 25 use break/continue.
+------------------------------------------------------------------------
+
+BREAK
+~~~~~
+
+int A[]={20,28,36,25,45,29};
+for (int i=0; i<6; i++)
+{
+   if (A[i]!=25)
+      printf("%d,", A[i]);
+   else
+      break;
+   printf("GTU\n");
+}
+printf("Hello");
+
+|
+|
+
+20,GTU
+28,GTU
+36,GTU
+Hello
+
+
+
+
+CONTINUE
+~~~~~~~~
+
+int A[]={20,28,36,25,45,29};
+for (int i=0; i<6; i++)
+{
+   if (A[i]!=25)
+      printf("%d,", A[i]);
+   else
+      continue;
+   printf("GTU\n");
+}
+printf("Hello");
+
+|
+|
+
+20,GTU
+28,GTU
+36,GTU
+45,GTU
+29,GTU
+Hello
+
+
+
+
+
+
+
+2D ARRAYS
+---------
+
+int A[5];
+A[2]=8;
+
+int B[3][4];  ---> NUMBER OF [] MEANS THE NUMBER OF DIMENSIONS
+                   3 (0,1,2) ROWS 4 (0,1,2,3) COLONS
+
+
+
+Fill the content of a 2D (3x4) int array using console.
+------------------------------------------------------
+
+int A[3][4];
+for (int i=0; i<3; i++)
+{
+   for (int j=0; j<4; j++)
+   {
+      scanf("%d", &A[i][j]);
+   }
+}
+for (int i=0; i<3; i++)
+{
+   for (int j=0; j<4; j++)
+   {
+      printf("%d ", A[i][j]);
+   }
+   printf("\n");
+}
+
+
+
+
+
+
+Read 5 characters into an array and then print them in reverse order.
+---------------------------------------------------------------------
+
+int i;
+char ch[5];
+for (i=0; i<5; i++)
+   scanf("%c", &ch[i]);
+printf("\n");
+for (i=4; i>=0; i--)
+{
+   printf("%c", &ch[i]);
+}
+
+
+
+
+
+
+
+
+DEBUGGING
+---------
+
+We have 3 error types:
+
+- COMPILER ERROR: These are the syntax errors that are reported by compiler.
+
+int a=5     ---> ; is missing
+if (a=5)    ---> = is missing
+   a=a+3;
+
+
+- LINKER ERROR: These are the errors when the user forget to define or implement a function. 
+
+
+
+- RUN-TIME ERROR (DEBUGGING): These are the logical errors you made when you are coding. Use debugging to handle.
+
+#include <stdio.h>
+
+main(){
+   int A[]={3,4,8,9,6,10,23,41,20,12};
+   int B[10;]
+   for (int =0; i<10; i++)
+   {
+      if (A[i]%2!=0)
+      {
+         B[i]=A[i]*A[i]
+      }
+      else
+      {
+         B[i] = A[i]/2;
+      }      
+   }
+   printf("Hello \n")
+
+   for (int i=0; i<10; i++)
+   {
+      B[i] = B[i]*B[i];
+   }
+}
+
+
+
+There will be many errors.
+Such as ; or ;]
+
+
+You can click the line number and then your code will run after the clicked line.
+So you can create break points.
+
+You can see the content of a variable by writing it into "Add watch" (in debug section).
+
+You can see previous residence of memory cells at your variable's values.
+These are garbage values so the speak.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

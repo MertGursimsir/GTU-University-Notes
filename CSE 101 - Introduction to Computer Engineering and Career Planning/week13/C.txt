@@ -1,0 +1,155 @@
+WEEK 13
+-------
+*******
+=======
+
+POINTERS: They are variables holding (not values) but addresses.
+
+int x;
+x = 5;
+
+int *y;  --> hold the address of an memory which is holding an integer.
+             ONLY INTEGER
+
+x=6;
+y=7; ---> will not be accepted WRONG
+
+y=&x; ---> we assigned the address of x to y
+
+
+*****************************************************************
+
+
+char c='E';
+char *D;  --->hold the address of an memory which is holding an CHAR.
+
+D = &x; ---> WRONG
+D = &c; ---> CORRECT
+
+
+
+
+
+TEXT FILES
+----------
+!!! file must be in the same folder with the .c file.
+    If there is no file with that name, code will create that file.
+
+
+FILE *fin, *fout;   ---> FILE is variable type.
+fin = fopen("person.txt", "r") ---> fopen returns the address that you are going to open.
+                                    (person.txt in this case)
+fout = fopen("Taxes.dat", "w");
+
+WE USED TO GET DATA AND PRINT IT TO THE CONSOLE IN THIS WAY.
+char name[10];
+int score;
+scanf("%s %d", name, &score);    ---> Ali 970
+printf("%s, %d", name, score);
+NOW WE WILL PRINT THAT FILE NOT TO CONSOLE, BUT TO THE FILE.
+
+fscanf(fin, "%s %d", name, &score);
+fprintf(fout, "%s, %d", name, score);
+fclose(fin);
+fclose(fout);
+
+*************************************************************************************
+
+
+int x;
+FILE *A, *B;
+A = fopen("person.txt", "w");
+
+char name[10];
+int income;
+
+while(scanf("%s %d", name, &income)!=EOF){
+   fprintf(A, "%s, %d \n", name, income);
+}
+fclose(A);
+
+*************************************************************************************
+
+
+int x;
+FILE *A, *B;
+A = fopen("person.txt", "r");   ---> person.txt olmalı çünkü içinden alıyoruz.
+B = fopen("taxes.txt", "w");    ---> taxes.txt yoksa write olduğu için kendi txt file yapar.
+
+char name[10];
+int income;
+float tax;
+
+if (A==NULL){
+   printf("The file is not exist.\n");
+}
+else{
+   while(fscanf(A, "%s %d", name, &income)!=EOF){
+      if (income>100)
+         tax = 0.6 * income;
+      else
+         tax = 0.2 * income;
+
+      fprintf(B, "%-10s, %-5d, %9.2f \n", name, income, tax);   ---> total:9 afterdot:2
+   }
+}
+
+fclose(A);
+fclose(B);
+
+
+
+
+*************************************************************************************
+
+
+
+int x;
+FILE *A, *B;
+A = fopen("person.txt", "r");   
+B = fopen("taxes.txt", "a");  ---> append to the existing file.    
+
+char name[10];
+int income;
+float tax;
+float taxRate;
+
+if (A==NULL){
+   printf("The file is not exist.\n");
+}
+else{
+   while(fscanf(A, "%s %d", name, &income)!=EOF){
+      if (income>100)
+	 taxRate=0.6;
+      else
+	 taxRate=0.2;
+      tax = taxRate * income;
+      fprintf(B, "%-10s, %-5d, %-9.2f %f \n", name, income, tax, taxRate);   
+   }
+}
+
+fclose(A);
+fclose(B);
+
+
+
+
+
+*************************************************************************************
+IF FILE EXISTS
+--------------
+
+"r" : opens the file for reading
+"w" : file will be overwritten
+"a" : opens a file to update
+"r+": opens a file for reading and writing 
+"w+": file will be overwritten
+
+IF FILE DOES NOT EXIST
+----------------------
+
+"r" : gives error
+"w" : creates a new file
+"a" : creates a new file
+"r+": gives error
+"w+": creates a new file for update (reading and writing)-hem yazma hem okuma amaçlı yaratır

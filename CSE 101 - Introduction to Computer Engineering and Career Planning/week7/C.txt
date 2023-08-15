@@ -1,0 +1,219 @@
+WEEK 7
+------
+******
+======
+
+
+FUNCTIONS
+---------
+A seperate unit which is created to make a specific task.
+
+One function cannot be defined in another function.
+Nested functions are not allowed.
+
+
+(function return type) (name) (arguments-parameters)
+
+Parameters are not necessary.
+
+
+Create a function named sumAll to sum 2 numbers and return it.
+--------------------------------------------------------------
+float sumAll(float f1, float f2){
+   float t=f1+f2;
+   return t;
+}
+
+|
+
+if there is no argument: leave it empty
+if you don't want to return anything: use void as a return type
+                                      void instead of float
+
+
+
+calling a function
+------------------
+The function must be decleared before calling it.
+
+The formal parameters must be supplied in required format and in correct order.
+
+
+Write a findmax function which is getting 2 float numbers and returns the greater one.
+---------------------------------------------------------------------------
+#include <stdio.h>
+
+float findMax(float, float);   ---> function is decleared.
+
+main(){
+   float a,b,c;
+   scanf("%f %f", &a, &b);
+   c = findMax(a, b);      ---> function is called.
+   printf("%f is the largest.", c);
+}
+
+//******************************* (for seperating)
+
+float findMax(float x, float y){    ---> function is created.
+   float big;
+   if (x>y)
+      big=x;
+   else
+      big=y;
+   return big;
+}
+
+
+
+x, y and big are erased after completed the function.
+Just a, b, c remains.
+
+
+
+there's no need to declearation
+-------------------------------
+#include <stdio.h>
+
+float findMax(float x, float y){   
+   float big;
+   if (x>y)
+      big=x;
+   else
+      big=y;
+   return big;
+}
+
+//*******************************
+
+main(){
+   float a,b,c;
+   scanf("%f %f", &a, &b);
+   c = findMax(a, b);  
+   printf("%f is the largest.", c);
+}
+
+
+
+
+
+
+
+#include <stdio.h>
+float findmax(float, float);
+
+main(){
+   float c;
+   c = findmax(5.3, 8.0);
+   printf("%f",c);
+   c=findmax(23, 10);
+   printf("%f",c);
+}
+
+//*******************************
+
+float findmax(float a, float b){
+   if (a>b)
+      return a;
+   else
+      return b;
+}
+
+
+
+
+
+
+
+If you don't want to return anything, use void.
+-----------------------------------------------
+write a function which is getting two float number and print the greater.
+*************************************************************************
+
+#include <stdio.h>
+void findmax(float, float);
+
+main(){
+   float a,b;
+   scanf("%f %f", &a, &b);
+   findmax(a,b);
+}
+
+void findmax(float a, float b){
+   if (a>b)
+      printf("%f is the greater.", a);
+   else
+      printf("%f is the greater.", b);
+}
+
+
+
+
+
+
+
+
+
+TWO TYPES OF CALLING FUNCTIONS:
+
+1) CALL BY VALUE: If a function receives values from argument list, this is called call by value. Like the all examples we did.
+
+2) CALL BY REFERENCE: If a function receives the address (reference) of variables, this is called call by reference. ---> NEXT SEMESTER.
+
+
+
+
+
+
+main'de tanımlanan değişkeni oluşturduğun fonksiyonda kullanamazsın.
+değişkeni kullanabilmek için global olarak tanımlaman lazım.
+
+
+
+
+
+
+Send arrays as argument
+-----------------------
+Find max value of an array in a function and return it's index.
+***************************************************************
+
+#include <stdio.h>
+int findmax(int[], int);
+
+main(){
+   int nums[]={3,6,9,5,7}, big;
+   big = findmax(nums, 5);    ---> 5 is the size
+   printf("%d", nums[big]);
+}
+
+int findmax(int A[], int n){
+   int maxInd=0;
+   for (int i=0; i<n; i++){
+      if (A[i] > A[maxInd])
+         maxInd=i;
+   }
+   return maxInd;
+}
+
+
+
+Array A, n, maxInd and i will be deleted.
+
+
+
+*WE CAN'T RETURN AN ARRAY.
+*WE CAN RETURN AN ARRAY REFERENCE.
+*WE CAN RETURN AN ARRAY WRAPPED IN STRUCT.
+(NEXT SEMESTER)
+
+
+
+
+
+
+
+
+
+
+
+
